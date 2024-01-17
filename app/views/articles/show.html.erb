@@ -1,0 +1,35 @@
+<div class = "mt-5">
+  <% if @article.image.attached? %>
+    <img src="<%= (url_for(@article.image)) %>" style="width : 100%; height : 300px;">
+  <% end %>
+</div>
+
+<div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><h1><%= @article.title %></h1></h1>
+    <p class="lead"><p><%= @article.body %></p></p>
+  </div>
+</div>
+<div>
+
+<div>
+  <%= link_to "Edit", edit_article_path(@article), class: "btn btn-primary" %>
+  <%= link_to "Destroy", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } ,class: "btn btn-danger" %>
+</div>
+
+
+<h2 class = "mt-5">Comments</h2>
+<%= render @article.comments%>
+
+<div class="card mt-3">
+  <div class="card-header">
+  <h2>Add a comment:</h2>
+  </div>
+  <div class="card-body">
+  <%= render 'comments/form' %>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+- unless comment.archived?
+  div.row.d-flex
+    div.col-md-8.col-lg-6
+      div.card.mb-4
+        div.card-body
+          p = comment.body
+          div.d-flex.justify-content-between
+            p.small.mb-0.ms-2 = comment.commenter          
+            p
+              = link_to "Destroy Comment", [comment.article, comment], 
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  

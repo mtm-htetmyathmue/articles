@@ -1,0 +1,19 @@
+div.card.mt-3
+  div.card-header
+    h2 Forgot your password?
+
+
+    div.card-body
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      
+      div.field.form-group
+        = f.label :email
+        br
+      = f.email_field :email, class:"form-control" ,autofocus: true, autocomplete: "email"
+      
+      div.actions.mt-3
+        = f.submit "Send me reset password instructions", class: "btn btn-primary"
+br
+= render "devise/shared/links"
+

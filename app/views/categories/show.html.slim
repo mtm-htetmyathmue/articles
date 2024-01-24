@@ -1,0 +1,15 @@
+.card.mt-3
+  .card-header
+    h3 = render @category
+
+  .card-body
+    .list-group
+      - @category.articles.each do |article|
+        button.list-group-item.list-group-item-action
+          = link_to article.title, article
+
+    div
+      = link_to "Edit this category", edit_category_path(@category), class: "mt-3 btn btn-primary"
+      = link_to "Back to categories", categories_path, class: "mt-3 btn btn-primary ml-3"
+      = button_to "Destroy this category", @category, class: "mt-3 btn btn-danger",
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }

@@ -1,0 +1,26 @@
+div.card.mt-3
+  div.card-header
+    h1 Articles
+
+  div.card-body
+    |Our blog has #{Article.public_count} articles and counting!
+
+    div.list-group.mt-3
+      - @articles.each do |article|
+        button.list-group-item.list-group-item-action  type="button" 
+          - unless article.archived?
+            = link_to article.title, article
+      br
+      div.container.apple-pagination
+        = paginate @articles
+
+    div.mt-3
+      = link_to 'New Article', new_article_path, class: "btn btn-primary"
+
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+= form_with model: [ @article, @article.comments.build ] do |form|
+  div.form-group
+    = form.label :commenter
+    br
+    = form.text_field :commenter, class: "form-control"
+
+  div.form-group
+    = form.label :body
+    br
+    = form.text_area :body , class: "form-control"
+
+  p
+    = form.label :status
+    br
+    = form.select :status, Visible::VALID_STATUSES, selected: 'public'
+
+  p
+    = form.submit class:"btn btn-primary"

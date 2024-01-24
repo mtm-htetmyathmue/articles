@@ -1,0 +1,33 @@
+= form_with model: article do |form|
+  div.form-group
+    = form.label :title
+    br
+    = form.text_field :title, class: "form-control"
+    - article.errors.full_messages_for(:title).each do |message|
+      div= message
+
+  div.form-group
+    = form.label :body
+    br
+    = form.text_area :body , class: "form-control"
+    br
+    - article.errors.full_messages_for(:body).each do |message|
+      div= message
+
+  div.form-group
+    = form.label :Image
+    = form.file_field :image
+
+  div
+    = form.label :status
+    br
+    = form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public'
+
+  div.form-group.mt-3
+    = form.label :category
+    br
+    = form.select :category_id, options_for_select(Category.all.map { |category| [category.name, category.id]})
+
+  div.mt-5
+    = form.submit class:"btn btn-primary"
+

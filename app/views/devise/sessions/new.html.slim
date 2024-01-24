@@ -1,0 +1,26 @@
+div.card.mt-3
+  div.card-header
+    h2 Log in
+
+  div.card-body
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      div.field.form-group
+        = f.label :email
+        br
+        = f.email_field :email, class:"form-control" , placeholder: "Email" ,autofocus: true, autocomplete: "email"
+  
+      div.field.form-group
+        = f.label :password
+        br
+        = f.password_field :password, class:"form-control" , placeholder: "Password" ,autocomplete: "current-password"
+  
+      - if devise_mapping.rememberable?
+        div.field.form-check
+          = f.check_box :remember_me, class: "form-check-input"
+          = f.label :remember_me
+  
+      div.actions
+        = f.submit "Log in", class: "btn btn-primary"
+
+br
+= render "devise/shared/links"

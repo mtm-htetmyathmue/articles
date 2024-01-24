@@ -8,6 +8,14 @@ gem "rails", "~> 7.1.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+gem 'rails-controller-testing'
+
+gem 'simplecov', '~> 0.22.0'
+
 # Use mysql as the database for Active Record
 gem "mysql2", "~> 0.5"
 
@@ -42,7 +50,12 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
 gem 'devise', '~> 4.9', '>= 4.9.3'
-gem 'will_paginate', '~> 4.0'
+
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
+gem 'kaminari-bootstrap'
+gem 'slim'
+gem 'nokogiri'
+gem 'turbo-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

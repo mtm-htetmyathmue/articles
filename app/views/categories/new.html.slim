@@ -1,0 +1,9 @@
+div.card.mt-3
+  div.card-header
+    h1 New category
+
+  div.card-body
+    = render "form", category: @category
+    div.mt-3
+      = link_to "Back to categories", categories_path , class: "btn btn-primary"
+

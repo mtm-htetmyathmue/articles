@@ -1,0 +1,6 @@
+h2.mt-5 Search Results
+
+div.list-group.mt-5
+  - @results.each do |result|
+    button.list-group-item.list-group-item-action type="button" 
+      = link_to result.title,result
